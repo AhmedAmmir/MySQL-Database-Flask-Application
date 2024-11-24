@@ -1,0 +1,46 @@
+Course Code,Course Title,Course Credits,Teaching Staff Name
+MATH-101,Introduction to Algebra,3,John Doe
+MATH-102,Calculus I,4,Jane B. Smith
+MATH-103,Linear Algebra,3,Albert C. Johnson
+MATH-104,Discrete Mathematics,5,John Doe
+MATH-105,Probability & Statistics,2,Jane B. Smith
+PHYS-101,General Physics,4,Emily Diane Davis
+PHYS-102,Mechanics,3,David Edward Clark
+PHYS-103,Electromagnetism,5,Sarah Walker
+PHYS-104,Thermodynamics,3,Emily Diane Davis
+PHYS-105,Quantum Mechanics,4,David Edward Clark
+CHEM-101,Organic Chemistry,3,Michael G. King
+CHEM-102,Inorganic Chemistry,2,Laura Helen Lewis
+CHEM-103,Physical Chemistry,4,Chris I. Miller
+CHEM-104,Analytical Chemistry,3,Michael G. King
+CHEM-105,Biochemistry,3,Laura Helen Lewis
+CS-101,Introduction to Programming,4,Laura Jane Taylor
+CS-102,Data Structures,3,Steve Keith Moore
+CS-103,Algorithms,4,Anna Louise White
+CS-104,Database Management Systems,3,Laura Jane Taylor
+CS-105,Operating Systems,2,Laura Jane Taylor
+EE-101,Circuit Theory,3,Tom Lee
+EE-102,Electromagnetic Fields,3,Lisa Natalie Harris
+EE-103,Control Systems,4,James O. Young
+EE-104,Power Systems,3,Tom Lee
+EE-105,Signal Processing,5,Lisa Natalie Harris
+ME-101,Mechanics of Materials,3,Olivia Grace Miller
+ME-102,Fluid Mechanics,4,William Scott
+ME-103,Thermodynamics,3,Emily Rose Parker
+ME-104,Dynamics of Machinery,5,Olivia Grace Miller
+ME-105,Manufacturing Processes,4,William Scott
+HIST-101,World History,3,Samuel Robert Wells
+HIST-102,History of Europe,3,Lily A. Foster
+HIST-103,Ancient Civilizations,4,George Patrick Hughes
+HIST-104,Modern History,3,Samuel Robert Wells
+HIST-105,History of America,5,Lily A. Foster
+PHIL-101,Introduction to Philosophy,4,Daniel Edward Adams
+PHIL-102,Ethics,5,Rachel Collins
+PHIL-103,Logic & Reasoning,3,Mark Oliver Gray
+PHIL-104,Philosophy of Science,3,Daniel Edward Adams
+PHIL-105,Metaphysics,2,Rachel Collins
+LIT-101,Introduction to Literature,4,Charles I. Hunt
+LIT-102,World Literature,5,Sophia Isabelle Morgan
+LIT-103,American Literature,3,Henry L. Bailey
+LIT-104,Shakespearean Studies,3,Charles I. Hunt
+LIT-105,Poetry & Prose,4,Sophia Isabelle Morgan

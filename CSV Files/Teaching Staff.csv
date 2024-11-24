@@ -1,0 +1,28 @@
+First Name,Middle Name,Last Name,Email,Title,Department Title
+John,NULL,Doe,jdoe@university.edu,Assistant Professor,Department of Mathematics
+Jane,B.,Smith,jbsmith@university.edu,Associate Professor,Department of Mathematics
+Albert,C.,Johnson,acjohnson@university.edu,Lecturer,Department of Mathematics
+Emily,Diane,Davis,eddavis@university.edu,Assistant Professor,Department of Physics
+David,Edward,Clark,declark@university.edu,Associate Professor,Department of Physics
+Sarah,NULL,Walker,swalker@university.edu,Professor,Department of Physics
+Michael,G.,King,mgking@university.edu,Assistant Professor,Department of Chemistry
+Laura,Helen,Lewis,lhlewis@university.edu,Associate Professor,Department of Chemistry
+Chris,I.,Miller,cimiller@university.edu,Teaching Assistant,Department of Chemistry
+Laura,Jane,Taylor,ljtaylor@university.edu,Assistant Professor,Department of Computer Science
+Steve,Keith,Moore,skmoore@university.edu,Lecturer,Department of Computer Science
+Anna,Louise,White,alwhite@university.edu,Professor,Department of Computer Science
+Tom,NULL,Lee,tlee@university.edu,Assistant Professor,Department of Electrical Engineering
+Lisa,Natalie,Harris,lnharris@university.edu,Lecturer,Department of Electrical Engineering
+James,O.,Young,joyoung@university.edu,Teaching Assistant,Department of Electrical Engineering
+Olivia,Grace,Miller,ogmiller@university.edu,Assistant Professor,Department of Mechanical Engineering
+William,NULL,Scott,wscott@university.edu,Professor,Department of Mechanical Engineering
+Emily,Rose,Parker,erparker@university.edu,Teaching Assistant,Department of Mechanical Engineering
+Samuel,Robert,Wells,srwells@university.edu,Associate Professor,Department of History
+Lily,A.,Foster,lafoster@university.edu,Lecturer,Department of History
+George,Patrick,Hughes,gphughes@university.edu,Professor,Department of History
+Daniel,Edward,Adams,deadams@university.edu,Associate Professor,Department of Philosophy
+Rachel,NULL,Collins,rcollins@university.edu,Lecturer,Department of Philosophy
+Mark,Oliver,Gray,mogray@university.edu,Teaching Assistant,Department of Philosophy
+Charles,I.,Hunt,cihunt@university.edu,Associate Professor,Department of Literature
+Sophia,Isabelle,Morgan,simorgan@university.edu,Lecturer,Department of Literature
+Henry,L.,Bailey,hlbailey@university.edu,Teaching Assistant,Department of Literature

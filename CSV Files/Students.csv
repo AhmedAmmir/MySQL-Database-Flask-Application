@@ -1,0 +1,92 @@
+First Name,Middle Name,Last Name,Email,GPA,Year of Enrollment,Department Title
+Jack,M.,Weasly,jmweasly@stu.university.edu,3.5,2023,Department of Mathematics
+Jill,Henry,Green,jhgreen@stu.university.edu,3.8,2019,Department of Mathematics
+Mark,NULL,Brown,mbrown@stu.university.edu,3.6,2021,Department of Mathematics
+Alice,Rebecca,Johnson,arjohnson@stu.university.edu,4.1,2020,Department of Mathematics
+Tom,S.,Davis,tsdavis@stu.university.edu,2.9,2022,Department of Mathematics
+Emma,Lynn,Smith,elsmith@stu.university.edu,3.2,2021,Department of Mathematics
+Lucas,NULL,Miller,lucasmiller@stu.university.edu,4.0,2020,Department of Mathematics
+Sophia,Katherine,Taylor,sktaylor@stu.university.edu,2.7,2024,Department of Mathematics
+James,Thomas,Wilson,jtwilson@stu.university.edu,3.4,2023,Department of Mathematics
+Olivia,Claire,Moore,ocmoore@stu.university.edu,3.9,2022,Department of Mathematics
+Michael,NULL,Anderson,maanderson@stu.university.edu,3.0,2023,Department of Physics
+Sarah,Diana,Thomas,sdthomas@stu.university.edu,4.3,2021,Department of Physics
+David,Joseph,Jackson,djjackson@stu.university.edu,3.2,2019,Department of Physics
+Ava,Brianna,White,abwhite@stu.university.edu,4.0,2022,Department of Physics
+Benjamin,NULL,Harris,benjamin.harris@stu.university.edu,2.8,2020,Department of Physics
+Charlotte,Mae,Martin,cmartin@stu.university.edu,3.6,2024,Department of Physics
+Jacob,Parker,Garcia,jgarcia@stu.university.edu,4.2,2023,Department of Physics
+Mia,Faith,Lee,mlee@stu.university.edu,3.9,2021,Department of Physics
+Ethan,Jacob,Young,ejyoung@stu.university.edu,3.7,2022,Department of Physics
+Madison,Nicole,Allen,mnallen@stu.university.edu,4.1,2020,Department of Physics
+Ethan,Carter,Lewis,ethan.lewis@stu.university.edu,2.5,2024,Department of Chemistry
+Lily,Taylor,Clark,ltclark@stu.university.edu,3.1,2023,Department of Chemistry
+Daniel,NULL,Walker,danielwalker@stu.university.edu,4.0,2022,Department of Chemistry
+Grace,Abigail,Hall,gahall@stu.university.edu,3.8,2021,Department of Chemistry
+Matthew,James,Allen,mjallen@stu.university.edu,2.9,2020,Department of Chemistry
+Elizabeth,NULL,King,elking@stu.university.edu,3.6,2023,Department of Chemistry
+Samuel,Brian,Scott,sbscott@stu.university.edu,4.2,2024,Department of Chemistry
+Victoria,Charlotte,Adams,vcadams@stu.university.edu,3.5,2022,Department of Chemistry
+Nathan,Richard,Baker,nrbaker@stu.university.edu,4.1,2020,Department of Chemistry
+Ariana,Marie,Gonzalez,arianagonzalez@stu.university.edu,3.3,2021,Department of Chemistry
+Sophia,Grace,Parker,sgparker@stu.university.edu,3.4,2022,Department of Computer Science
+William,David,Hughes,wdhughes@stu.university.edu,3.0,2018,Department of Computer Science
+Charlotte,NULL,Lopez,clopez@stu.university.edu,4.5,2021,Department of Computer Science
+Lucas,Ethan,Davis,ledavis@stu.university.edu,2.8,2023,Department of Computer Science
+Oliver,Benjamin,Adams,obadams@stu.university.edu,3.2,2020,Department of Computer Science
+Amelia,Rose,Garcia,argarcia@stu.university.edu,3.9,2024,Department of Computer Science
+Henry,Edward,Martinez,hemartinez@stu.university.edu,3.7,2021,Department of Computer Science
+Mia,Leigh,Taylor,mleightaylor@stu.university.edu,2.6,2022,Department of Computer Science
+Jack,Oliver,Bennett,jobennett@stu.university.edu,4.0,2020,Department of Computer Science
+Evelyn,Mae,Baker,emabaker@stu.university.edu,3.5,2019,Department of Computer Science
+James,Allen,Carter,jacarter@stu.university.edu,2.5,2024,Department of Electrical Engineering
+Sophia,Megan,Ward,smward@stu.university.edu,3.0,2021,Department of Electrical Engineering
+Oliver,NULL,Graham,ograham@stu.university.edu,4.2,2020,Department of Electrical Engineering
+Lily,May,Taylor,lmtaylor@stu.university.edu,3.6,2022,Department of Electrical Engineering
+Ethan,Matthew,Allen,emaallen@stu.university.edu,3.9,2018,Department of Electrical Engineering
+Amelia,NULL,Nelson,amelian@stu.university.edu,2.8,2023,Department of Electrical Engineering
+Benjamin,John,Smith,bjsmith@stu.university.edu,4.1,2024,Department of Electrical Engineering
+Emily,Rose,Hughes,erhughes@stu.university.edu,3.3,2021,Department of Electrical Engineering
+Jack,Toby,Richards,jtrichards@stu.university.edu,3.5,2022,Department of Electrical Engineering
+Olivia,Jade,Hall,ojhall@stu.university.edu,4.0,2020,Department of Electrical Engineering
+William,T.,Roberts,wtr@stu.university.edu,3.1,2024,Department of Mechanical Engineering
+Sophia,Faye,King,sfking@stu.university.edu,3.6,2023,Department of Mechanical Engineering
+Olivia,M.,Stewart,oms@stu.university.edu,4.0,2022,Department of Mechanical Engineering
+Lily,Mae,Scott,lmscott@stu.university.edu,3.9,2021,Department of Mechanical Engineering
+Michael,E.,Jackson,mejackson@stu.university.edu,3.5,2020,Department of Mechanical Engineering
+Charlotte,Elizabeth,Walker,cewalker@stu.university.edu,4.1,2024,Department of Mechanical Engineering
+Lucas,L.,Martinez,llmartinez@stu.university.edu,2.7,2023,Department of Mechanical Engineering
+Amelia,Lynn,Gomez,alynngomez@stu.university.edu,3.2,2022,Department of Mechanical Engineering
+Ava,NULL,Wood,avawood@stu.university.edu,4.4,2020,Department of Mechanical Engineering
+Benjamin,S.,Nelson,bsnelson@stu.university.edu,2.9,2021,Department of Mechanical Engineering
+James,Ryan,Green,jrg@stu.university.edu,3.4,2024,Department of History
+Isabella,NULL,Taylor,istaylor@stu.university.edu,3.8,2023,Department of History
+Ethan,Cole,Harris,echarris@stu.university.edu,4.2,2020,Department of History
+Olivia,Marie,Scott,omscott@stu.university.edu,2.5,2022,Department of History
+Aiden,Jacob,Davis,ajdavis@stu.university.edu,3.9,2021,Department of History
+Ella,V.,Morris,evmorris@stu.university.edu,3.0,2024,Department of History
+Sophia,Catherine,Walker,scwalker@stu.university.edu,4.1,2023,Department of History
+Liam,Z.,King,lzk@stu.university.edu,3.7,2022,Department of History
+Charlotte,Ann,Hughes,cahughes@stu.university.edu,4.3,2020,Department of History
+James,Oliver,Reed,jorreed@stu.university.edu,3.6,2021,Department of History
+William,J.,Smith,wjsmith@stu.university.edu,3.2,2024,Department of Philosophy
+Sophia,Alice,Green,sagreen@stu.university.edu,4.4,2023,Department of Philosophy
+James,Ethan,Johnson,jejohnson@stu.university.edu,3.0,2022,Department of Philosophy
+Isabella,D.,Clark,idclark@stu.university.edu,3.5,2021,Department of Philosophy
+Charlotte,O.,Lee,coleel@stu.university.edu,2.9,2020,Department of Philosophy
+Benjamin,John,Adams,bjadams@stu.university.edu,3.8,2024,Department of Philosophy
+Lucas,Daniel,Harris,ldharris@stu.university.edu,3.3,2023,Department of Philosophy
+Emily,Leigh,Martinez,elmartinez@stu.university.edu,3.9,2022,Department of Philosophy
+Olivia,Joan,Walker,ojwalker@stu.university.edu,2.7,2021,Department of Philosophy
+Jack,Michael,Young,jmyoung@stu.university.edu,3.6,2020,Department of Philosophy
+Benjamin,James,Parker,bjp@stu.university.edu,3.4,2024,Department of Literature
+Olivia,Grace,Johnson,ogjohnson@stu.university.edu,3.2,2022,Department of Literature
+Ava,Lena,Martinez,alena@stu.university.edu,3.8,2021,Department of Literature
+James,Reed,Adams,jreed@stu.university.edu,3.6,2020,Department of Literature
+Isabella,Lily,Harris,islily@stu.university.edu,2.8,2024,Department of Literature
+Sophia,Amelia,Clark,sac@stu.university.edu,3.7,2023,Department of Literature
+Charlotte,Olivia,Lopez,colivia@stu.university.edu,3.5,2022,Department of Literature
+Jack,Isaac,Martin,jimartin@stu.university.edu,3.3,2021,Department of Literature
+Lucas,Isabella,Walker,liwalker@stu.university.edu,3.0,2020,Department of Literature
+Olivia,Faith,Anderson,ofa@stu.university.edu,4.1,2024,Department of Literature
+Sophia,Nicole,Johnson,snjohnson@stu.university.edu,2.9,2023,Department of Literature
