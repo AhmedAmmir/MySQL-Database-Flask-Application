@@ -1,5 +1,6 @@
-from sqlalchemy import DECIMAL, String, PrimaryKeyConstraint, ForeignKeyConstraint, CheckConstraint
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from typing import Optional
+from sqlalchemy import DECIMAL, String, Table, Column, ForeignKey, CheckConstraint
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
 
 class Base(DeclarativeBase):
@@ -10,12 +11,8 @@ class Faculty(Base):
 
     __tablename__ = 'Faculty_T'
 
-    __table_args__ = (
-        PrimaryKeyConstraint(["faculty_id"], name="faculty_pk")
-    )
-    
-    faculty_id: Mapped[int] = mapped_column(autoincrement=True)
-    faculty_title: Mapped[str] = mapped_column(String(50), nullable=False)
+    faculty_id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    faculty_title: Mapped[str] = mapped_column(String(50))
     
     def __init__(self, id: int, title: str) -> None:
         self.faculty_id = id
@@ -29,14 +26,11 @@ class Department(Base):
 
     __tablename__ = 'Department_T'
 
-    __table_args__ = (
-        PrimaryKeyConstraint(['department_id'], name="department_fk"),
-        ForeignKeyConstraint(['department_faculty_id'], refcolumns=['faculty_t.faculty_id'], name="department_faculty_fk")
-    )
-    
-    department_id: Mapped[int] = mapped_column(autoincrement=True)
-    department_title: Mapped[str] = mapped_column(String(50), nullable=False)
-    department_faculty_id: Mapped[int] = mapped_column(nullable=False)
+    department_id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    department_title: Mapped[str] = mapped_column(String(50))
+    department_faculty_id: Mapped[int] = mapped_column(ForeignKey("Faculty_T.faculty_id"))
+
+    department_faculty: Mapped["Faculty"] = relationship()
 
     def __init__(self, id: int, title: str, faculty_id: int) -> None:
         self.department_id = id
@@ -51,12 +45,8 @@ class Title(Base):
 
     __tablename__ = 'Title_T'
 
-    __table_args__ = (
-        PrimaryKeyConstraint(columns=['title_id'], name='title_pk')
-    )
-    
-    title_id: Mapped[int] = mapped_column(autoincrement=True)
-    title_description: Mapped[str] = mapped_column(String(25), nullable=False)
+    title_id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    title_description: Mapped[str] = mapped_column(String(25))
 
     def __init__(self, id: int, description: str) -> None:
         self.title_id = id
@@ -70,19 +60,16 @@ class TeachingStaff(Base):
 
     __tablename__ = 'Teaching_Staff_T'
     
-    __table_args__ = (
-        PrimaryKeyConstraint(['teaching_staff_id'], name="teaching_staff_pk"),
-        ForeignKeyConstraint(['teaching_staff_title_id'], refcolumns=['Title_T.title_id'], name="teaching_staff_title_fk"),
-        ForeignKeyConstraint(['teaching_staff_department_id'], refcolumns=['Department_T.department_id'], name="teaching_staff_department_fk")
-    )
+    teaching_staff_id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    teaching_staff_first_name: Mapped[str] = mapped_column(String(15))
+    teaching_staff_middle_name: Mapped[Optional[str]] = mapped_column(String(15))
+    teaching_staff_last_name: Mapped[str] = mapped_column(String(15))
+    teaching_staff_email: Mapped[str] = mapped_column(String(50))
+    teaching_staff_title_id: Mapped[int] = mapped_column(ForeignKey("Title_T.title_id"))
+    teaching_staff_department_id: Mapped[int] = mapped_column(ForeignKey("Department_T.department_id"))
 
-    teaching_staff_id: Mapped[int] = mapped_column(autoincrement=True)
-    teaching_staff_first_name: Mapped[str] = mapped_column(String(15), nullable=False)
-    teaching_staff_middle_name: Mapped[str] = mapped_column(String(15), nullable=True)
-    teaching_staff_last_name: Mapped[str] = mapped_column(String(15), nullable=False)
-    teaching_staff_email: Mapped[str] = mapped_column(String(50), nullable=False)
-    teaching_staff_title_id: Mapped[int] = mapped_column(nullable=False)
-    teaching_staff_department_id: Mapped[int] = mapped_column(nullable=False)
+    teaching_staff_title: Mapped["Title"] = relationship()
+    teaching_staff_department_id: Mapped["Department"] = relationship()
 
     def __init__(self, id: int, firstName: str, middleName: str, lastName: str, email: str, titleID: int, departmentID: int) -> None:
         self.teaching_staff_id = id
@@ -101,16 +88,14 @@ class Course(Base):
 
     __tablename__ = 'Course_T'
 
-    __table_args__ = (
-        PrimaryKeyConstraint(['course_id'], name="course_pk"),
-        ForeignKeyConstraint(['course_teaching_staff_id'], refcolumns=['Teaching_Staff_T.teaching_staff_id'], name="course_teaching_staff_fk")
-    )
+    course_id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    course_code: Mapped[str] = mapped_column(String(8))
+    course_title: Mapped[str] = mapped_column(String(45))
+    course_credits: Mapped[int] = mapped_column()
+    course_teaching_staff_id: Mapped[int] = mapped_column(ForeignKey("Teaching_Staff_T.teaching_staff_id"))
 
-    course_id: Mapped[int] = mapped_column(autoincrement=True)
-    course_code: Mapped[str] = mapped_column(String(8), nullable=False)
-    course_title: Mapped[str] = mapped_column(String(45), nullable=False)
-    course_credits: Mapped[int] = mapped_column(nullable=False)
-    course_teaching_staff_id: Mapped[int] = mapped_column(nullable=False)
+    course_teaching_staff: Mapped["TeachingStaff"] = relationship()
+    course_student_list: Mapped[list["Student_Course"]] = relationship(back_populates="student")
 
     def __init__(self, id: int, code: str, title: str, credits: int, teachingStaffID: int) -> None:
        self.course_id = id
@@ -125,22 +110,23 @@ class Course(Base):
 
 class Student(Base):
 
-    __table__ = 'Student_T'
+    __tablename__ = 'Student_T'
 
     __table_args__ = (
-        PrimaryKeyConstraint(['student_id'], name="student_pk"),
-        ForeignKeyConstraint(['student_department_id'], refcolumns=['Department_T.department_id'], name="student_department_fk"),
-        CheckConstraint("`student_gpa` >= 0.00 AND `student_gpa` <= 5.00", name="student_gpa_check")
+        CheckConstraint("`student_gpa` >= 0.00 AND `student_gpa` <= 5.00", name="student_gpa_check"),
     )
 
-    student_id: Mapped[int] = mapped_column(autoincrement=True)
-    student_first_name: Mapped[str] = mapped_column(String(15), nullable=False)
-    student_middle_name: Mapped[str] = mapped_column(String(15), nullable=True)
-    student_last_name: Mapped[str] = mapped_column(String(15), nullable=False)
-    student_email: Mapped[str] = mapped_column(String(50), nullable=False)
-    student_gpa: Mapped[int] = mapped_column(DECIMAL(3, 2), nullable=False)
-    student_year_of_enrollment: Mapped[int] = mapped_column(nullable=False)
-    student_department_id: Mapped[int] = mapped_column(nullable=False)
+    student_id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    student_first_name: Mapped[str] = mapped_column(String(15))
+    student_middle_name: Mapped[Optional[str]] = mapped_column(String(15))
+    student_last_name: Mapped[str] = mapped_column(String(15))
+    student_email: Mapped[str] = mapped_column(String(50))
+    student_gpa: Mapped[int] = mapped_column(DECIMAL(3, 2))
+    student_year_of_enrollment: Mapped[int] = mapped_column()
+    student_department_id: Mapped[int] = mapped_column(ForeignKey("Department_T.department_id"))
+
+    student_department: Mapped["Department"] = relationship()
+    student_course_list: Mapped[list["Student_Course"]] = relationship(back_populates="course")
 
     def __init__(self, id: int, firstName: str, middleName: str, lastName: str, email: str, yearOfEnrollment: int, departmentID: int) -> None:
         self.student_id = id
@@ -158,14 +144,11 @@ class Student_Course(Base):
 
     __tablename__ = 'Student_Course_JT'
 
-    __table_args__ = (
-        PrimaryKeyConstraint(['student_id', 'course_id'], name="student_course_pk"),
-        ForeignKeyConstraint(['student_id'], refcolumns=["Student_T.student_id"], name="student_fk"),
-        ForeignKeyConstraint(['course_id'], refcolumns=["Course_T.course_id"], name="course_fk")
-    )
+    student_id: Mapped[int] = mapped_column(ForeignKey("Student_T.student_id"), primary_key=True)
+    course_id: Mapped[int] = mapped_column(ForeignKey("Course_T.course_id"), primary_key=True)
 
-    student_id: Mapped[int] = mapped_column(nullable=False)
-    course_id: Mapped[int] = mapped_column(nullable=False)
+    student: Mapped["Student"] = relationship(back_populates="course_student_list")
+    course: Mapped["Course"] = relationship(back_populates="student_course_list")
 
     def __init__(self, student_id: int, course_id: int) -> None:
         self.student_id = student_id
