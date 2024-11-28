@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+<body>
+    <h1>Welcome to the Database Web Application</h1>
+    <p>Select how you want to connect to the database:</p>
+    <form action="{{ url_for('manual_connect') }}" method="get">
+        <button type="submit">Manual Connect</button>
+    </form>
+    <form action="{{ url_for('config_connect') }}" method="get">
+        <button type="submit">Connect via Config File</button>
+    </form>
+</body>
+</html>
