@@ -9,8 +9,18 @@ class MySQLWebApplication(Flask):
     def __init__(self):
 
         self.mysqlSession: MySQLSession = None
+        
+        self.recordFilePaths: dict = {
+            "Faculty": "./CSV Files/Faculties.csv",
+            "Department": "./CSV Files/Departments.csv",
+            "Title": "./CSV Files/Titles.csv",
+            "Teaching Staff": "./CSV Files/Teaching Staff.csv",
+            "Student": "./CSV Files/Students.csv",
+            "Course": "./CSV Files/Courses.csv",
+            "Student Course": "./CSV Files/Student Courses.csv",
+        }
 
-        super().__init__(import_name=__name__, template_folder='./HTML Files/')
+        super().__init__(import_name=__name__, template_folder='./HTML Files/', static_folder='./CSS Files/')
         self.secret_key = b'-QfR{^]A$81%"|X,O0r~'
         self.config['MYSQL_DATABASE_URI'] = None
 
@@ -19,10 +29,21 @@ class MySQLWebApplication(Flask):
     @staticmethod
     def _route_setup(self):
         
-        @self.route('/')
-        @self.route('/')
+        @self.route('/', methods=['GET', 'POST'])
         def homepage():
-            return render_template("homepage.html")
+            
+            if request.method != 'POST':
+                return render_template("homepage.html")
+            
+            connectionMethod = request.form['connectionMethod']
+
+            match connectionMethod:
+                
+                case "manualConnect":
+                    return redirect(url_for("manual_connect"))
+                
+                case "configFileConnect":
+                    return redirect(url_for("config_connect"))
     
         @self.route('/manual_connect', methods=['GET', 'POST'])
         def manual_connect():
@@ -55,15 +76,15 @@ class MySQLWebApplication(Flask):
             if request.method != 'POST':
                 return render_template("config_connect.html")
 
-            configFile = request.files['config_file']
+            configFile = request.files['configFile']
 
             if configFile is not None:
                 connectionConfig = json.load(configFile)
 
-            self.mysqlSession = MySQLSession(**connectionConfig)
-
             try:
-                if self.mysqlSession.session_is_connected():
+                mysqlSession = MySQLSession(**connectionConfig)
+
+                if mysqlSession.session_is_connected():
                     flash("Connection Succesful!", 'success')
                     return redirect(url_for("main_menu"))
             except Exception as err:
@@ -71,21 +92,42 @@ class MySQLWebApplication(Flask):
             
             return render_template("config_connect.html")
         
-        @self.route('/main_menu')
+        @self.route('/main_menu', methods=['GET', 'POST'])
         def main_menu():
-            return render_template("main_menu.html")
-        
-        @self.route('/data_entry_menu')
+            
+            if request.method != 'POST':
+                return render_template("main_menu.html")
+            
+            mainMenuOption = request.form['mainMenuOption']
+
+            match mainMenuOption:
+                
+                case "dataEntry":
+                    return redirect(url_for("data_entry_menu"))
+                
+                case "reportGeneration":
+                    return redirect(url_for("report_generation_menu"))
+
+        @self.route('/data_entry_menu', methods=['GET', 'POST'])
         def data_entry_menu():
-            return "Data Entry Menu"
+            return f"Data Entry Menu"
+
+        @self.route('/table_insert/<tableName>', methods=['GET', 'POST'])
+        def table_insert(tableName: str):
+            return f"Table Name: {tableName}"
+        
+        @self.route('/table_update/<tableName>', methods=['GET', 'POST'])
+        def table_update(tableName: str):
+            return f"Table Name: {tableName}"
+
+        @self.route('/table_delete/<tableName>', methods=['GET', 'POST'])
+        def table_delete(tableName: str):
+            return f"Table Name: {tableName}"
         
         @self.route('/report_generation_menu')
         def report_generation_menu():
             return "Report Generation Menu"
         
-    def session_init(self, hostname: str, username: str, password: str, database: str):
-        self.mysqlSession = MySQLSession(host=hostname, user=username, password=password, database=database)
-
 if __name__ == '__main__':
     app = MySQLWebApplication()
     app.run(debug=True)
