@@ -18,9 +18,8 @@ class Faculty(Base):
         self.faculty_id = id
         self.faculty_title = title
     
-    def __repr__(self) -> str:
-        return f"<Faculty(faculty_id={self.faculty_id}, faculty_title='{self.faculty_title}')>"
-
+    def __repr__(self) -> dict:
+        return {self.__tablename__: ["faculty_id", "faculty_title"]}
 
 class Department(Base):
 
@@ -37,9 +36,8 @@ class Department(Base):
         self.department_title = title
         self.department_faculty_id = faculty_id
 
-    def __repr__(self) -> str:
-        return f"<Department(department_id={self.department_id}, department_title='{self.department_title}', department_faculty_id={self.department_faculty_id})>"
-
+    def __repr__(self) -> dict:
+        return {self.__tablename__: ["department_id", "department_title", "department_faculty_id"]}
 
 class Title(Base):
 
@@ -52,9 +50,8 @@ class Title(Base):
         self.title_id = id
         self.title_description = description
 
-    def __repr__(self) -> str:
-        return f"<Title(title_id={self.title_id}, title_description='{self.title_description}')>"
-
+    def __repr__(self) -> dict:
+        return {self.__tablename__: ["title_id", "title_description"]}
 
 class TeachingStaff(Base):
 
@@ -80,9 +77,8 @@ class TeachingStaff(Base):
         self.teaching_staff_title_id = titleID
         self.teaching_staff_department_id = departmentID
         
-    def __repr__(self) -> str:
-        return f"<TeachingStaff(teaching_staff_id={self.teaching_staff_id}, teaching_staff_first_name='{self.teaching_staff_first_name}', teaching_staff_middle_name='{self.teaching_staff_middle_name}', teaching_staff_last_name='{self.teaching_staff_last_name}', teaching_staff_email='{self.teaching_staff_email}', teaching_staff_title_id={self.teaching_staff_title_id}, teaching_staff_department_id={self.teaching_staff_department_id})>"
-    
+    def __repr__(self) -> dict:
+        return {self.__tablename__: ["teaching_staff_id", "teaching_staff_first_name", "teaching_staff_middle_name", "teaching_staff_last_name", "teaching_staff_email", "teaching_staff_title_id", "teaching_staff_department_id"]}
 
 class Course(Base):
 
@@ -104,9 +100,8 @@ class Course(Base):
        self.course_credits = credits
        self.course_teaching_staff_id = teachingStaffID 
 
-    def __repr__(self) -> str:
-        return f"<Course(course_id={self.course_id},course_code='{self.course_code}', course_title='{self.course_title}', course_credits={self.course_credits}, course_teaching_staff_id='{self.course_teaching_staff_id}', teaching_staff_title_id={self.teaching_staff_title_id}, teaching_staff_department_id={self.teaching_staff_department_id})>"
-
+    def __repr__(self) -> dict:
+        return {self.__tablename__: ["course_id", "course_code", "course_title", "course_credits", "course_teaching_staff_id"]}
 
 class Student(Base):
 
@@ -128,17 +123,18 @@ class Student(Base):
     student_department: Mapped["Department"] = relationship()
     student_course_list: Mapped[list["Student_Course"]] = relationship(back_populates="course")
 
-    def __init__(self, id: int, firstName: str, middleName: str, lastName: str, email: str, yearOfEnrollment: int, departmentID: int) -> None:
+    def __init__(self, id: int, firstName: str, middleName: str, lastName: str, email: str, gpa: float, yearOfEnrollment: int, departmentID: int) -> None:
         self.student_id = id
         self.student_first_name = firstName
         self.student_middle_name = middleName
         self.student_last_name = lastName
         self.student_email = email
+        self.student_gpa = gpa
         self.student_year_of_enrollment = yearOfEnrollment
         self.student_department_id = departmentID
         
-    def __repr__(self) -> str:
-        return f"<Student(student_id={self.student_id}, student_first_name='{self.student_first_name}', student_middle_name='{self.student_middle_name}', student_last_name='{self.student_last_name}', student_email='{self.student_email}', student_year_of_enrollment={self.student_year_of_enrollment}, student_department_id={self.student_department_id})>"
+    def __repr__(self) -> dict:
+        return {self.__tablename__: ["student_id", "student_first_name", "student_middle_name", "student_last_name", "student_email", "student_gpa", "student_year_of_enrollment", "student_department_id"]}
 
 class Student_Course(Base):
 
@@ -154,5 +150,17 @@ class Student_Course(Base):
         self.student_id = student_id
         self.course_id = course_id
 
-    def __repr__(self) -> str:
-        return f"<StudentCourses(department_id={self.department_id}, department_title='{self.department_title}', department_faculty_id={self.department_faculty_id})>"
+    def __repr__(self) -> dict:
+        return {self.__tablename__: ["student_id", "course_id"]}
+
+
+def table_get_all_names() -> list[str]:
+    return [
+        Faculty.__tablename__,
+        Department.__tablename__,
+        Title.__tablename__,
+        TeachingStaff.__tablename__,
+        Student.__tablename__,
+        Course.__tablename__,
+        Student_Course.__tablename__
+    ]
