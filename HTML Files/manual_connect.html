@@ -4,40 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manual MySQL Database Connection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Manual Database Connection</h1>
+    <div class="container">
+        <h2>Manual Database Connection</h2>
 
-    <form method="post">
-        <label for="hostname">Hostname:</label>
-        <input type="text" id="hostname" name="hostname" required><br><br>
+        <form method="POST">
+            <div class="form-group">
+                <label for="hostname">Hostname:</label>
+                <input type="text" id="hostname" name="hostname" required>
 
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
 
-        <label for="database">Database Name:</label>
-        <input type="text" id="database" name="database" required><br><br>
+                <label for="database">Database Name:</label>
+                <input type="text" id="database" name="database" required>
+            </div>
 
-        <button type="submit">Connect</button>
-        <button type="reset">Reset</button>
-        <a href="{{ url_for('homepage') }}">Back</a>
-    </form>
+            <div class="button-group">
+                <input type="submit" value="Connect">
+                <input type="reset" value="Reset">
+            </div>
 
-    <!-- Flash message display -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <ul class="flashes">
-                {% for category, message in messages %}
-                    <li class="flash {{ category }}">
-                        {{ message }}
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+            <a href="{{ url_for('homepage') }}" class="back-button">Back</a>
+        </form>
 
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
 </body>
 </html>

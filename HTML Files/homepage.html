@@ -3,16 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>MySQL Database Web Application Homepage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Welcome to the Database Web Application</h1>
-    <p>Select how you want to connect to the database:</p>
-    <form action="{{ url_for('manual_connect') }}" method="get">
-        <button type="submit">Manual Connect</button>
-    </form>
-    <form action="{{ url_for('config_connect') }}" method="get">
-        <button type="submit">Connect via Config File</button>
-    </form>
+
+<div class="container">
+    <h2>Welcome to MySQL Database Web Application</h2>
+
+    <div class="content">
+        <form method="POST">
+            <p>Select how you want to connect to the database:</p>
+
+            <div class="form-group">
+                <input type="radio" id="manualConnect" name="connectionMethod" value="manualConnect" required>
+                <label for="manualConnect">Manual Connect</label><br>
+
+                <input type="radio" id="configFileConnect" name="connectionMethod" value="configFileConnect" required>
+                <label for="configFileConnect">Config File Connect</label><br>
+            </div>
+
+            <div class="button-group">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+</div>
+
 </body>
 </html>
